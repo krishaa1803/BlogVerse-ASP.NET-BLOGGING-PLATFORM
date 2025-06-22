@@ -1,0 +1,13 @@
+# Ignore build and user-specific files
+**/bin/
+**/obj/
+*.user
+*.suo
+*.tmp
+*.log
+*.ncrunch*
+.vs/
+.vscode/
+packages/
+*.dbmdl
+*.sqlite

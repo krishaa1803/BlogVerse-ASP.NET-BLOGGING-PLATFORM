@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Community";
+    var availableCommunities = new List<BlogVerse.Models.CommunityModel>()
+    {
+        new BlogVerse.Models.CommunityModel { Id = 1, Name = "Photography Enthusiasts", Description = "Share your best photos and discuss techniques.", ImageUrl = "<img src='@Url.Content(\"~/images/Photography.png\")' class='card-img-top' alt='Photography Enthusiasts' style='height: 150px; object-fit: cover;'>", MemberCount = 150 },
+        new BlogVerse.Models.CommunityModel { Id = 2, Name = "Food Lovers United", Description = "A place to share recipes, restaurant reviews, and all things food!", ImageUrl = "<img src='@Url.Content(\"~/images/community_food.jpg\")' class='card-img-top' alt='Food Lovers United' style='height: 150px; object-fit: cover;'>", MemberCount = 280 },
+        new BlogVerse.Models.CommunityModel { Id = 3, Name = "Travel Explorers", Description = "Discuss your travel adventures, share tips, and plan your next trip.", ImageUrl = "<img src='@Url.Content(\"~/images/community_travel.jpg\")' class='card-img-top' alt='Travel Explorers' style='height: 150px; object-fit: cover;'>", MemberCount = 95 },
+        new BlogVerse.Models.CommunityModel { Id = 4, Name = "Book Worms Corner", Description = "Talk about your favorite books, authors, and literary discussions.", ImageUrl = "<img src='@Url.Content(\"~/images/community_books.jpg\")' class='card-img-top' alt='Book Worms Corner' style='height: 150px; object-fit: cover;'>", MemberCount = 210 }
+    };
+}
+
+<div class="container mt-4">
+    <h1 style="color: black;">Explore Communities</h1>
+    <hr class="mb-4" />
+
+    @if (TempData["JoinMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["JoinMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @if (availableCommunities != null && availableCommunities.Any())
+        {
+            @foreach (var community in availableCommunities)
+            {
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        @if (!string.IsNullOrEmpty(community.ImageUrl))
+                        {
+                            @Html.Raw(community.ImageUrl)
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: black;">@community.Name</h5>
+                            <p class="card-text" style="color: black;">@community.Description</p>
+                            <p class="card-text"><small class="text-muted">@community.MemberCount Members</small></p>
+                            <form method="post" asp-action="JoinCommunity" asp-route-communityId="@community.Id">
+                                <button type="submit" class="btn btn-primary btn-sm">Join</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col">
+                <p style="color: black;">No communities available yet.</p>
+            </div>
+        }
+    </div>
+</div>
