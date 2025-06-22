@@ -99,32 +99,54 @@ Visual Studio 2022 / Visual Studio Code
 
 SQL Server
 
-🚀 How to Run Locally
-Clone the repository
+## 🚀 How to Run Locally
 
-bash
+Follow the steps below to set up and run the BlogVerse ASP.NET Core MVC project on your local machine:
+
+---
+
+### ✅ 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/BlogVerse.git
+Replace your-username with your actual GitHub username if needed.
+
+✅ 2. Open the Solution in Visual Studio
+Navigate to the cloned folder.
+
+Open the BlogVerse.sln file in Visual Studio 2022 or later.
+
+✅ 3. Configure the Database
+Open appsettings.json in the root project (BlogVerse/BlogVerse/appsettings.json).
+
+Replace the default connection string with your own SQL Server credentials.
+Example:
+
+json
 Copy
 Edit
-git clone https://github.com/your-username/BlogVerse.git
-Open the solution
+"ConnectionStrings": {
+  "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=BlogVerseDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
+✅ 4. Apply Migrations and Update the Database
+In Visual Studio, open the Package Manager Console:
 
-Open BlogVerse.sln in Visual Studio.
-
-Configure database
-
-Open appsettings.json
-
-Replace the connection string with your SQL Server credentials
-
-Apply migrations and update DB
-
-Open Package Manager Console and run:
+mathematica
+Copy
+Edit
+Tools → NuGet Package Manager → Package Manager Console
+Run the following command to apply migrations and create the database:
 
 bash
 Copy
 Edit
 Update-Database
-Run the project
+✅ 5. Run the Project
+Press F5
+OR
 
-Press F5 or click the green ▶️ button to launch the application
+Click the green Run ▶️ button in Visual Studio
 
+🟢 The application will launch at Localhost
+
+---
