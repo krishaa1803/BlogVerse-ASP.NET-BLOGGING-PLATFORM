@@ -72,32 +72,43 @@ The goal of BlogVerse is to provide an intuitive, secure, and visually appealing
 
 ---
 
+
 ## 📸 Screenshots
 
-> Upload and insert your screenshots below using the format:
 
-```markdown
 ### 🏠 Landing Page  
-![Landing Page](link-to-image)
+![image](https://github.com/user-attachments/assets/5851728b-b9a7-466e-b37d-9799ff08a033)
+
 
 ### 🔐 Login / Register  
-![Login](link)
+![image](https://github.com/user-attachments/assets/2d991909-f14d-48f4-b185-806c41cf671a)
+![image](https://github.com/user-attachments/assets/76e03b7b-719d-469b-af5a-d0d049f7622a)
 
-### ✍️ Blog Editor  
-![Editor](link)
 
-### 📊 Dashboard  
-![Dashboard](link)
+### ✍️ User logs in  
+![image](https://github.com/user-attachments/assets/573a29b1-9d54-4f69-b580-5239ba489faa)
 
-### 📖 Blog Detail with Comments  
-![Blog Detail](link)
-⚙️ Getting Started
-✅ Prerequisites
-.NET SDK 6.0+
 
-Visual Studio 2022 / Visual Studio Code
+### 📊 Writer's Dashboard  
+![image](https://github.com/user-attachments/assets/b4831b49-300f-41bc-8307-f20bdba3a5dc)
+![image](https://github.com/user-attachments/assets/9dda1270-38c7-4a4a-a1be-cfa9d5c81808)
 
-SQL Server
+
+### 📖 Analytics 
+![image](https://github.com/user-attachments/assets/caef615d-75a5-4aba-9252-23f9331f9548)
+
+
+---
+
+## ⚙️ Getting Started
+
+### ✅ Prerequisites
+
+- [.NET SDK 6.0+](https://dotnet.microsoft.com/en-us/download)
+- [Visual Studio 2022](https://visualstudio.microsoft.com/) or [VS Code](https://code.visualstudio.com/)
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+---
 
 ## 🚀 How to Run Locally
 
@@ -109,44 +120,60 @@ Follow the steps below to set up and run the BlogVerse ASP.NET Core MVC project 
 
 ```bash
 git clone https://github.com/your-username/BlogVerse.git
-Replace your-username with your actual GitHub username if needed.
+````
 
-✅ 2. Open the Solution in Visual Studio
-Navigate to the cloned folder.
+> Replace `your-username` with your actual GitHub username.
 
-Open the BlogVerse.sln file in Visual Studio 2022 or later.
+---
 
-✅ 3. Configure the Database
-Open appsettings.json in the root project (BlogVerse/BlogVerse/appsettings.json).
+### ✅ 2. Open the Solution
 
-Replace the default connection string with your own SQL Server credentials.
-Example:
+* Navigate to the cloned project folder.
+* Open the `BlogVerse.sln` file in **Visual Studio 2022** or later.
 
-json
-Copy
-Edit
+---
+
+### ✅ 3. Configure the Database
+
+* Open `appsettings.json` located at `BlogVerse/BlogVerse/appsettings.json`.
+* Replace the connection string with your local SQL Server settings:
+
+```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=BlogVerseDB;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
-✅ 4. Apply Migrations and Update the Database
-In Visual Studio, open the Package Manager Console:
-
-mathematica
-Copy
-Edit
-Tools → NuGet Package Manager → Package Manager Console
-Run the following command to apply migrations and create the database:
-
-bash
-Copy
-Edit
-Update-Database
-✅ 5. Run the Project
-Press F5
-OR
-
-Click the green Run ▶️ button in Visual Studio
-
-🟢 The application will launch at Localhost
+```
 
 ---
+
+### ✅ 4. Apply Migrations and Update the Database
+
+* In Visual Studio:
+
+  * Go to `Tools → NuGet Package Manager → Package Manager Console`
+* Run:
+
+```bash
+Update-Database
+```
+
+This will create the necessary tables and schema in SQL Server.
+
+---
+
+### ✅ 5. Run the Project
+
+* Press `F5` or click the green ▶️ **Start** button in Visual Studio
+
+Your project will launch at:
+
+```
+https://localhost:44364/
+```
+
+✅ BlogVerse is now up and running on your local machine!
+
+````
+
+---
+
